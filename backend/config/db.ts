@@ -1,12 +1,12 @@
-import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
 dotenv.config();
 
-const MONGO_URI = process.env.MONGODB_CONNECTION_URL;
+const MONGO_URI = process.env.MONGODB_URI;
 
 if (!MONGO_URI) {
-  throw new Error("MONGODB_CONNECTION_URL not found in .env");
+  throw new Error("MONGODB_URI not found in .env");
 }
 
 export const connectDB = async () => {

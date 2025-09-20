@@ -2,45 +2,45 @@
 
 A modern, responsive full-stack note-taking application built with React, TypeScript, Node.js, and MongoDB. Features user authentication, intelligent pagination with caching, and a clean, professional UI.
 
-## 🚀 Live Demo
+## Live Demo
 
 _[Add your deployed application URL here]_
 
-## 📸 Screenshots
+## Screenshots
 
 _[Add screenshots of your application here]_
 
-## ✨ Features
+## Features
 
-### 🔐 Authentication & Authorization
+### Authentication & Authorization
 
 - **User Registration**: Create new accounts with secure password hashing (bcrypt)
 - **JWT Authentication**: Secure login system with JSON Web Tokens
 - **Role-based Access**: Only authenticated users can create, edit, and delete notes
 - **Guest Access**: Anonymous users can browse notes in read-only mode
 
-### 📝 Notes Management
+### Notes Management
 
 - **CRUD Operations**: Create, read, update, and delete notes
 - **Author Attribution**: Notes display author information and ownership
 - **Permission-based UI**: Edit/delete buttons only visible to note owners
 - **Rich Content**: Support for multi-line text content
 
-### ⚡ Performance & UX
+### Performance & UX
 
 - **Smart Pagination**: Custom-built pagination component (no external libraries)
 - **Intelligent Caching**: Pre-fetches 5 pages for instant navigation
 - **Optimistic Updates**: Minimal API calls through strategic caching
 - **Responsive Design**: Mobile-first, works on all device sizes
 
-### 🧪 Quality Assurance
+### Quality Assurance
 
 - **End-to-End Testing**: Comprehensive Playwright test suite
 - **Unit Testing**: Backend API testing with Jest and Supertest
 - **Type Safety**: Full TypeScript implementation across the stack
 - **Code Quality**: ESLint configuration with strict rules
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Frontend
 
@@ -70,7 +70,7 @@ _[Add screenshots of your application here]_
 - **ESLint** - Code linting and formatting
 - **Nodemon** - Development server auto-restart
 
-## 🏗️ Architecture
+## Architecture
 
 ### Frontend Architecture
 
@@ -131,12 +131,12 @@ backend/
 }
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
 - Node.js (v16 or higher)
-- MongoDB instance (local or cloud)
+- MongoDB installed and running locally
 - npm or yarn package manager
 
 ### Installation
@@ -168,8 +168,18 @@ backend/
 
    ```env
    MONGODB_URI=mongodb://localhost:27017/notesapp
-   JWT_SECRET=your-super-secure-jwt-secret
+   JWT_SECRET=your-super-secure-jwt-secret-change-this-in-production
    PORT=3001
+   ```
+
+   **Note**: Make sure MongoDB is installed and running locally. You can start MongoDB using:
+
+   ```bash
+   # On macOS with Homebrew
+   brew services start mongodb-community
+
+   # Or manually
+   mongod
    ```
 
 ### Running the Application
@@ -178,7 +188,7 @@ backend/
 
    ```bash
    cd backend
-   npm run dev
+   npm start
    ```
 
    Server runs on `http://localhost:3001`
@@ -206,7 +216,7 @@ cd backend
 npm test
 ```
 
-## 📋 API Documentation
+## API Documentation
 
 ### Authentication Endpoints
 
@@ -220,7 +230,7 @@ npm test
 - `PUT /api/notes/:id` - Update note (authenticated, owner only)
 - `DELETE /api/notes/:id` - Delete note (authenticated, owner only)
 
-## 🎯 Key Implementation Highlights
+## Key Implementation Highlights
 
 ### 1. Intelligent Caching System
 
@@ -249,7 +259,7 @@ npm test
 - Component-based architecture
 - Separation of concerns
 
-## 🤝 Contributing
+## Contributing
 
 This project follows standard web development best practices:
 
@@ -258,11 +268,11 @@ This project follows standard web development best practices:
 - Automated testing
 - Type safety enforcement
 
-## 📄 License
+## License
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🎓 Learning Outcomes
+## Learning Outcomes
 
 This project demonstrates proficiency in:
 
@@ -276,4 +286,4 @@ This project demonstrates proficiency in:
 
 ---
 
-_Built with ❤️ using modern web technologies_
+_Built using modern web technologies_
