@@ -2,13 +2,12 @@
 
 A modern, responsive full-stack note-taking application built with React, TypeScript, Node.js, and MongoDB. Features user authentication, intelligent pagination with caching, and a clean, professional UI.
 
-## Live Demo
-
-_[Add your deployed application URL here]_
-
 ## Screenshots
+<img width="1138" height="717" alt="Screenshot 2025-09-20 at 11 06 17" src="https://github.com/user-attachments/assets/80c734f7-90b1-47b0-b24c-d773add6636c" />
+<img width="1233" height="482" alt="Screenshot 2025-09-20 at 11 06 33" src="https://github.com/user-attachments/assets/bea1db2a-4f12-4864-87c1-262e523b1dd2" />
+<img width="542" height="442" alt="Screenshot 2025-09-20 at 11 06 45" src="https://github.com/user-attachments/assets/39836b23-8411-41cd-a6c9-a579ed317f42" />
+<img width="495" height="259" alt="Screenshot 2025-09-20 at 11 07 08" src="https://github.com/user-attachments/assets/b8a71e8d-795e-4720-83c3-684e44af3935" />
 
-_[Add screenshots of your application here]_
 
 ## Features
 
