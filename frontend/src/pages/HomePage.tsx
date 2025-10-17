@@ -5,6 +5,7 @@ import { useAuth } from "../contexts/AuthContext";
 import { Note } from "../components/Note";
 import { Pagination } from "../components/Pagination";
 import { getNotes, preloadNotes } from "../notesService";
+import { notesCache } from "../services/cacheService";
 
 function HomePage() {
   const { state, dispatch } = useNotes();
@@ -54,8 +55,13 @@ function HomePage() {
       });
 
       if (res.ok) {
-        const newNote = await res.json();
-        dispatch({ type: "add_note", note: newNote });
+        await res.json();
+
+        // Clear cache and refetch notes to update pagination
+        notesCache.clear();
+        const { notes, totalPages } = await getNotes(currentPage);
+        dispatch({ type: "set_notes", notes, totalPages });
+
         dispatch({
           type: "set_notification",
           notification: "Added a new note",

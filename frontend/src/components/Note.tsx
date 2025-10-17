@@ -3,6 +3,8 @@ import { Note as NoteType } from "../Note";
 import { useNotes } from "../contexts/NotesContext";
 import { useAuth } from "../contexts/AuthContext";
 import { handleApiError, isAuthError } from "../services/errorService";
+import { notesCache } from "../services/cacheService";
+import { getNotes } from "../notesService";
 import "./Note.css";
 
 const BASE_URL = "http://localhost:3001";
@@ -14,7 +16,7 @@ interface NoteProps {
 }
 
 export const Note = ({ note, canEdit = false, token }: NoteProps) => {
-  const { dispatch } = useNotes();
+  const { state, dispatch } = useNotes();
   const { dispatch: authDispatch } = useAuth();
   const [editing, setEditing] = useState(false);
   const [content, setContent] = useState(note.content);
@@ -37,7 +39,27 @@ export const Note = ({ note, canEdit = false, token }: NoteProps) => {
       });
 
       if (response.ok) {
-        dispatch({ type: "delete_note", id: note._id });
+        // Clear cache
+        notesCache.clear();
+
+        // Refetch current page to update the list
+        const { notes, totalPages } = await getNotes(state.currentPage);
+
+        // If current page is now empty and it's not page 1, go to previous page
+        if (notes.length === 0 && state.currentPage > 1) {
+          const prevPage = state.currentPage - 1;
+          const prevPageData = await getNotes(prevPage);
+          dispatch({
+            type: "set_notes",
+            notes: prevPageData.notes,
+            totalPages: prevPageData.totalPages,
+          });
+          dispatch({ type: "set_page", page: prevPage });
+        } else {
+          // Stay on current page with updated data
+          dispatch({ type: "set_notes", notes, totalPages });
+        }
+
         dispatch({ type: "set_notification", notification: "Note deleted" });
       } else {
         const errorData = await response.json();
