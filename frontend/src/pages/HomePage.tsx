@@ -4,7 +4,7 @@ import { useNotes } from "../contexts/NotesContext";
 import { useAuth } from "../contexts/AuthContext";
 import { Note } from "../components/Note";
 import { Pagination } from "../components/Pagination";
-import { getNotes, preloadNotes } from "../notesService";
+import { getNotes, preloadNotes } from "../services/notesService";
 import { notesCache } from "../services/cacheService";
 
 function HomePage() {

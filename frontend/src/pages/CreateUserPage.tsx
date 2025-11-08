@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 interface CreateUserFormData {
   name: string;
@@ -8,14 +8,14 @@ interface CreateUserFormData {
 }
 
 const CreateUserPage: React.FC = () => {
-  const [formData, setFormData] = React.useState<CreateUserFormData>({
+  const [formData, setFormData] = useState<CreateUserFormData>({
     name: "",
     email: "",
     username: "",
     password: "",
   });
-  const [message, setMessage] = React.useState<string>("");
-  const [error, setError] = React.useState<string>("");
+  const [message, setMessage] = useState<string>("");
+  const [error, setError] = useState<string>("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

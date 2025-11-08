@@ -1,6 +1,6 @@
 import axios from "axios";
-import { Note } from "./Note";
-import { notesCache } from "./services/cacheService";
+import { Note } from "../Note";
+import { notesCache } from "./cacheService";
 
 const API_URL = "http://localhost:3001/notes";
 const POSTS_PER_PAGE = 10;

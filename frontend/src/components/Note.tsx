@@ -4,7 +4,7 @@ import { useNotes } from "../contexts/NotesContext";
 import { useAuth } from "../contexts/AuthContext";
 import { handleApiError, isAuthError } from "../services/errorService";
 import { notesCache } from "../services/cacheService";
-import { getNotes } from "../notesService";
+import { getNotes } from "../services/notesService";
 import "./Note.css";
 
 const BASE_URL = "http://localhost:3001";
